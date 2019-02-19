@@ -17,6 +17,7 @@
 		CD963116221B96D5008CDE28 /* Agenda_de_ContatosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD963115221B96D5008CDE28 /* Agenda_de_ContatosUITests.m */; };
 		CD963125221C4367008CDE28 /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = CD963124221C4367008CDE28 /* Contato.m */; };
 		CD963128221C71F9008CDE28 /* ListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD963127221C71F9008CDE28 /* ListaContatosViewController.m */; };
+		CD96312B221CA68D008CDE28 /* ContatoDao.m in Sources */ = {isa = PBXBuildFile; fileRef = CD96312A221CA68D008CDE28 /* ContatoDao.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		CD963124221C4367008CDE28 /* Contato.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
 		CD963126221C71F8008CDE28 /* ListaContatosViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListaContatosViewController.h; sourceTree = "<group>"; };
 		CD963127221C71F9008CDE28 /* ListaContatosViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListaContatosViewController.m; sourceTree = "<group>"; };
+		CD963129221CA68D008CDE28 /* ContatoDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContatoDao.h; sourceTree = "<group>"; };
+		CD96312A221CA68D008CDE28 /* ContatoDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContatoDao.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				CD9630F7221B96D2008CDE28 /* Main.storyboard */,
 				CD963126221C71F8008CDE28 /* ListaContatosViewController.h */,
 				CD963127221C71F9008CDE28 /* ListaContatosViewController.m */,
+				CD963129221CA68D008CDE28 /* ContatoDao.h */,
+				CD96312A221CA68D008CDE28 /* ContatoDao.m */,
 				CD9630FA221B96D4008CDE28 /* Assets.xcassets */,
 				CD9630FC221B96D4008CDE28 /* LaunchScreen.storyboard */,
 				CD9630FF221B96D4008CDE28 /* Info.plist */,
@@ -275,6 +280,7 @@
 				CD963125221C4367008CDE28 /* Contato.m in Sources */,
 				CD9630F6221B96D2008CDE28 /* ViewController.m in Sources */,
 				CD963128221C71F9008CDE28 /* ListaContatosViewController.m in Sources */,
+				CD96312B221CA68D008CDE28 /* ContatoDao.m in Sources */,
 				CD963101221B96D4008CDE28 /* main.m in Sources */,
 				CD9630F3221B96D2008CDE28 /* AppDelegate.m in Sources */,
 			);
