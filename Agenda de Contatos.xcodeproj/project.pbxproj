@@ -15,6 +15,7 @@
 		CD963101221B96D4008CDE28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD963100221B96D4008CDE28 /* main.m */; };
 		CD96310B221B96D4008CDE28 /* Agenda_de_ContatosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD96310A221B96D4008CDE28 /* Agenda_de_ContatosTests.m */; };
 		CD963116221B96D5008CDE28 /* Agenda_de_ContatosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD963115221B96D5008CDE28 /* Agenda_de_ContatosUITests.m */; };
+		CD963125221C4367008CDE28 /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = CD963124221C4367008CDE28 /* Contato.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		CD963111221B96D5008CDE28 /* Agenda de ContatosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Agenda de ContatosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD963115221B96D5008CDE28 /* Agenda_de_ContatosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Agenda_de_ContatosUITests.m; sourceTree = "<group>"; };
 		CD963117221B96D5008CDE28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD963123221C4367008CDE28 /* Contato.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
+		CD963124221C4367008CDE28 /* Contato.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				CD9630F2221B96D2008CDE28 /* AppDelegate.m */,
 				CD9630F4221B96D2008CDE28 /* ViewController.h */,
 				CD9630F5221B96D2008CDE28 /* ViewController.m */,
+				CD963123221C4367008CDE28 /* Contato.h */,
+				CD963124221C4367008CDE28 /* Contato.m */,
 				CD9630F7221B96D2008CDE28 /* Main.storyboard */,
 				CD9630FA221B96D4008CDE28 /* Assets.xcassets */,
 				CD9630FC221B96D4008CDE28 /* LaunchScreen.storyboard */,
@@ -262,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD963125221C4367008CDE28 /* Contato.m in Sources */,
 				CD9630F6221B96D2008CDE28 /* ViewController.m in Sources */,
 				CD963101221B96D4008CDE28 /* main.m in Sources */,
 				CD9630F3221B96D2008CDE28 /* AppDelegate.m in Sources */,
