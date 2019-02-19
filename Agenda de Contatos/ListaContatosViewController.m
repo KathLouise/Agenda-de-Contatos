@@ -25,7 +25,7 @@
         //Cria o botão que fica do lado direito
         self.navigationItem.rightBarButtonItem = botaoForm;
         self.navigationItem.title = @"Contatos";
-        self.contatoDao = [ContatoDao new];
+        self.contatoDao = [ContatoDao contatoDaoInstance];
     }
     
     return self;
@@ -35,14 +35,13 @@
 -(void) exibeFormulario {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *form = [storyboard instantiateViewControllerWithIdentifier:@"Form-Contato"];
-    form.contatoDao.contatos = self.contatoDao.contatos;
     [self.navigationController pushViewController:form animated:YES];
 }
 
 /*retorna para a tela o numero de elementos que tem no array,
   Para criar exatamente a quantidade de linhas correta na View */
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.contatoDao.contatos.count;
+    return [self.contatoDao totalElementos];
 }
 
 // retorna um celula[uma linha da tabela] que deve ser renderizada para um determinado indice
@@ -57,7 +56,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: identificador];
     }
     
-    Contato *contato = self.contatoDao.contatos[indexPath.row];
+    Contato *contato = [self.contatoDao contatoIndice: indexPath.row];
     cell.textLabel.text = contato.nome;
     
     return cell;

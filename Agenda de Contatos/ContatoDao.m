@@ -10,6 +10,8 @@
 
 @implementation ContatoDao
 
+static ContatoDao *defaultDao = nil;
+
 -(id) init {
     self = [super init];
     
@@ -18,6 +20,29 @@
     }
     
     return self;
+}
+
+//Se não existir lista, cria e devolve, senão só devolve a existente
+//Padrão Singleton
+// + -> static
++ (ContatoDao *) contatoDaoInstance{
+    if(!defaultDao){
+        defaultDao = [ContatoDao new];
+    }
+    
+    return defaultDao;
+}
+
+- (void)adicionaContato:(Contato *)contato{
+    [self.contatos addObject:contato];
+}
+
+- (NSInteger) totalElementos{
+    return self.contatos.count;
+}
+
+- (Contato *)contatoIndice:(NSInteger)posicao {
+    return self.contatos[posicao];
 }
 
 @end

@@ -17,7 +17,7 @@
         UIBarButtonItem *botao = [[UIBarButtonItem alloc] initWithTitle:@"Adicionar" style:UIBarButtonItemStylePlain target:self action:@selector(adiciona)];
         self.navigationItem.rightBarButtonItem = botao;
         self.navigationItem.title = @"Novo Contato";
-        self.contatoDao = [ContatoDao new];
+        self.contatoDao = [ContatoDao contatoDaoInstance];
     }
     
     return self;
@@ -31,7 +31,7 @@
     contato.telefone = self.telefone.text;
     contato.site = self.site.text;
     
-    [self.contatoDao.contatos addObject: contato];
+    [self.contatoDao adicionaContato: contato];
     NSLog(@"%@", self.contatoDao.contatos);
     
     //Volta para a tela de lista
