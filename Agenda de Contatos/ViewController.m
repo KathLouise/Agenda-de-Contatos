@@ -24,15 +24,16 @@
     self.contato = [Contato new];
     [self atribuiInformacoes];
     [self.contatoDao adicionaContato: self.contato];
-    
     //Volta para a tela de lista
     [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate contatoAdicionado: self.contato];
 }
 
 -(void) altera {
     [self atribuiInformacoes];
     //Volta para a tela de lista
     [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate contatoAtualizado:self.contato];
 }
 
 -(void) atribuiInformacoes {

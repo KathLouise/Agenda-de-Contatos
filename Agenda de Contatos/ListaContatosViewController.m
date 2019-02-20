@@ -7,7 +7,6 @@
 //
 
 #import "ListaContatosViewController.h"
-#import "ViewController.h"
 #import "Contato.h"
 
 @implementation ListaContatosViewController 
@@ -27,6 +26,7 @@
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
         self.navigationItem.title = @"Contatos";
         self.contatoDao = [ContatoDao contatoDaoInstance];
+        self.linhaSelecionada = -1;
     }
     
     return self;
@@ -36,6 +36,8 @@
 -(void) exibeFormulario {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *form = [storyboard instantiateViewControllerWithIdentifier:@"Form-Contato"];
+    //Faz essa atribuição para poder pegar a lista que esta sendo usada
+    form.delegate = self;
     //Verifica se existe um contato selecionado, se houver passa ele para o form para edição
     if(self.contatoSelecionado){
         form.contato = self.contatoSelecionado;
@@ -94,6 +96,34 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.contatoSelecionado = [self.contatoDao contatoIndice:indexPath.row];
     [self exibeFormulario];
+}
+
+-(void)contatoAdicionado:(Contato *)contato{
+    self.linhaSelecionada = [self.contatoDao indiceDoContato:contato];
+    NSString *mensagem = [NSString stringWithFormat:@"Contato %@ adicionado com sucesso", contato.nome];
+    UIAlertController *alerta = [UIAlertController alertControllerWithTitle:@"Contato Adicionado" message:mensagem preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alerta addAction:ok];
+    [self presentViewController:alerta animated:YES completion:nil];
+}
+
+-(void)contatoAtualizado:(Contato *)contato{
+    self.linhaSelecionada = [self.contatoDao indiceDoContato:contato];
+    NSString *mensagem = [NSString stringWithFormat:@"Contato %@ alterado com sucesso", contato.nome];
+    UIAlertController *alerta = [UIAlertController alertControllerWithTitle:@"Contato Alterado" message:mensagem preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alerta addAction:ok];
+    [self presentViewController:alerta animated:YES completion:nil];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.linhaSelecionada inSection:0];
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    
+    self.linhaSelecionada = -1;
+    
 }
 
 @end

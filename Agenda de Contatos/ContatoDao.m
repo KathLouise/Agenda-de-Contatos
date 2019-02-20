@@ -49,4 +49,9 @@ static ContatoDao *defaultDao = nil;
     [self.contatos removeObject:contato];
 }
 
+- (NSInteger)indiceDoContato:(id)contato{
+    return [self.contatos indexOfObject:contato];
+}
+
+
 @end
