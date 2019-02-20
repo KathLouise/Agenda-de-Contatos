@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *site;
 
 @property ContatoDao *contatoDao;
+@property Contato *contato;
 
 @end
 

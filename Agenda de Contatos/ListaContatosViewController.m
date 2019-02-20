@@ -24,6 +24,7 @@
         
         //Cria o botão que fica do lado direito
         self.navigationItem.rightBarButtonItem = botaoForm;
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
         self.navigationItem.title = @"Contatos";
         self.contatoDao = [ContatoDao contatoDaoInstance];
     }
@@ -35,6 +36,13 @@
 -(void) exibeFormulario {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *form = [storyboard instantiateViewControllerWithIdentifier:@"Form-Contato"];
+    //Verifica se existe um contato selecionado, se houver passa ele para o form para edição
+    if(self.contatoSelecionado){
+        form.contato = self.contatoSelecionado;
+    }
+    
+    //Contato passado, limpa este contato.
+    self.contatoSelecionado = nil;
     [self.navigationController pushViewController:form animated:YES];
 }
 
@@ -65,6 +73,27 @@
 //Recarrega a tabela
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
+}
+
+//SObrescreve o método padrão para que ele delete os contatos do array do Dao
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        Contato *contato = [self.contatoDao contatoIndice:indexPath.row];
+        NSLog(@"%ld", (long)indexPath.row);
+        NSLog(@"%@", contato);
+        
+        /*Deve se remover primeiro da lista e depois remove-se da tabela
+         nessa ordem, senão ocorre um erro no numero de linhas, o programa se
+         perde*/
+        [self.contatoDao removeContato:contato];
+        //recebe um array de indexPath e uma animação
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.contatoSelecionado = [self.contatoDao contatoIndice:indexPath.row];
+    [self exibeFormulario];
 }
 
 @end

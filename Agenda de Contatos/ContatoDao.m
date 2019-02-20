@@ -33,7 +33,7 @@ static ContatoDao *defaultDao = nil;
     return defaultDao;
 }
 
-- (void)adicionaContato:(Contato *)contato{
+- (void) adicionaContato:(Contato *)contato{
     [self.contatos addObject:contato];
 }
 
@@ -41,8 +41,12 @@ static ContatoDao *defaultDao = nil;
     return self.contatos.count;
 }
 
-- (Contato *)contatoIndice:(NSInteger)posicao {
+- (Contato *) contatoIndice:(NSInteger)posicao {
     return self.contatos[posicao];
+}
+
+- (void) removeContato:(Contato *)contato {
+    [self.contatos removeObject:contato];
 }
 
 @end
